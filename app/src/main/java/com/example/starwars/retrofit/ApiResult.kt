@@ -1,5 +1,6 @@
 package com.example.starwars.retrofit
 
+import com.example.starwars.data.PeoplePage
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
@@ -21,7 +22,7 @@ sealed class ApiResult<out T>(val data: T?, val throwable: Throwable?) {
     )
 }
 
-fun <T, R> Flow<ApiResult<T>>.apiResultTransform(transform: (T?) -> R): Flow<ApiResult<R>> {
+fun <T, R> Flow<ApiResult<T>>.apiResultTransform(transform: (T?) -> R?): Flow<ApiResult<R>> {
     return this.map { result ->
         when (result) {
             is ApiResult.Loading -> ApiResult.Loading
