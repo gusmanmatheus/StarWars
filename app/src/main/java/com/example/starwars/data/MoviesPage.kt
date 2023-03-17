@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 data class MoviesPage(
     @SerializedName("results")
-    val movieList:List<MoviesPage>
+    val movieList:List<MoviesRemote>
 )

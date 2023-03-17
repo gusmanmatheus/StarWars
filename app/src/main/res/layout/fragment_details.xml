@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <ImageView
+        android:id="@+id/fdPeopleImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+    <TextView
+        android:id="@+id/fdNameKey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="name: "
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toBottomOf="@id/fdPeopleImage"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <TextView
+        android:id="@+id/fdName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text = "Luke Skywalker"
+        android:layout_margin="16dp"
+        app:layout_constraintStart_toEndOf="@id/fdNameKey"
+        app:layout_constraintTop_toBottomOf="@id/fdPeopleImage"/>
+
+    <TextView
+        android:id="@+id/fdHeightKey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="altura: "
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toBottomOf="@id/fdNameKey"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <TextView
+        android:id="@+id/fdHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text = "172cm"
+        android:layout_margin="16dp"
+        app:layout_constraintStart_toEndOf="@id/fdNameKey"
+        app:layout_constraintTop_toBottomOf="@id/fdNameKey"/>
+
+    <TextView
+        android:id="@+id/fdMassKey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="peso: "
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toBottomOf="@id/fdHeightKey"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <TextView
+        android:id="@+id/fdDirector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text = "77kg"
+        android:layout_margin="16dp"
+        app:layout_constraintStart_toEndOf="@id/fdNameKey"
+        app:layout_constraintTop_toBottomOf="@id/fdHeightKey"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
