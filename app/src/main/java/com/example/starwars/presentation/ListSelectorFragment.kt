@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.starwars.R
+import com.example.starwars.data.TypeItem
 import com.example.starwars.databinding.FragmentListSelectorBinding
 
 class ListSelectorFragment : Fragment() {
@@ -20,7 +22,22 @@ class ListSelectorFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentListSelectorBinding.inflate(inflater)
+        setupClicks()
         return binding.root
     }
 
+    private fun setupClicks() {
+        binding.moviesImage.setOnClickListener {
+            goToListFragment(TypeItem.MOVIES)
+        }
+        binding.peopleImage.setOnClickListener {
+            goToListFragment(TypeItem.PEOPLE)
+        }
+    }
+
+    private fun goToListFragment(item: TypeItem) {
+        findNavController().safeNavigate(
+            ListSelectorFragmentDirections.actionListSelectorFragmentToListFragment(item)
+        )
+    }
 }

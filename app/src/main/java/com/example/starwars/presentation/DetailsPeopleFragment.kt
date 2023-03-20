@@ -1,4 +1,4 @@
-package com.example.starwars.data.presentation
+package com.example.starwars.presentation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.example.starwars.R
 
 
-class DetailsFragment : Fragment() {
+class DetailsPeopleFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }

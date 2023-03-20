@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/listSelectorFragment">
+
+
+    <fragment
+        android:id="@+id/listSelectorFragment"
+        android:name="com.example.starwars.presentation.ListSelectorFragment"
+        android:label="fragment_list_selector"
+        tools:layout="@layout/fragment_list_selector">
+        <action
+            android:id="@+id/action_listSelectorFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.example.starwars.presentation.ListFragment"
+        android:label="fragment_list"
+        tools:layout="@layout/fragment_list">
+        <argument
+            android:name="typeItem"
+            app:argType="com.example.starwars.data.TypeItem" />
+        <action
+            android:id="@+id/action_listFragment_to_detailsMovieFragment"
+            app:destination="@id/detailsMovieFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_detailsPeopleFragment"
+            app:destination="@id/detailsPeopleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsPeopleFragment"
+        android:name="com.example.starwars.presentation.DetailsPeopleFragment"
+        android:label="DetailsPeopleFragment">
+        <argument
+            android:name="people"
+            app:argType="com.example.starwars.presentation.model.People" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsMovieFragment"
+        android:name="com.example.starwars.presentation.DetailsMovieFragment"
+        android:label="fragment_details_movie"
+        tools:layout="@layout/fragment_details_movie">
+        <argument
+            android:name="movie"
+            app:argType="com.example.starwars.presentation.model.Movie"/>
+    </fragment>
+</navigation>
