@@ -1,6 +1,5 @@
 package com.example.starwars.retrofit
 
-import com.example.starwars.data.PeoplePage
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 

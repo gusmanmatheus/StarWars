@@ -1,6 +1,6 @@
 package com.example.starwars.presentation.model
 
-import com.example.starwars.data.MoviesRemote
+import com.example.starwars.data.model.MoviesRemote
 import java.io.Serializable
 
 data class Movie(

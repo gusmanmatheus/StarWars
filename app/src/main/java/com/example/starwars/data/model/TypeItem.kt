@@ -1,4 +1,4 @@
-package com.example.starwars.data
+package com.example.starwars.data.model
 
 import java.io.Serializable
 

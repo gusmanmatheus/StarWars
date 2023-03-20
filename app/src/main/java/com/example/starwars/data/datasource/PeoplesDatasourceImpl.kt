@@ -2,7 +2,7 @@ package com.example.starwars.data.datasource
 
 import android.net.Uri
 import com.example.starwars.data.ApiRequest
-import com.example.starwars.data.PeoplePage
+import com.example.starwars.data.model.PeoplePage
 import com.example.starwars.retrofit.ApiResult
 import com.example.starwars.retrofit.apiResultTransform
 import kotlinx.coroutines.flow.Flow
