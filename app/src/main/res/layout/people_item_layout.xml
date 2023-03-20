@@ -63,4 +63,16 @@
         android:layout_margin="16dp"
         app:layout_constraintStart_toEndOf="@id/ilNameKey"
         app:layout_constraintTop_toBottomOf="@id/ilHeightKey"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/ilPeopleImage"
+        app:layout_constraintEnd_toEndOf="@+id/ilPeopleImage"
+        app:layout_constraintStart_toStartOf="@+id/ilPeopleImage"
+        app:layout_constraintTop_toTopOf="@+id/ilPeopleImage" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

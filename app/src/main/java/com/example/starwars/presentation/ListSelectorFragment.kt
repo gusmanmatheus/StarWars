@@ -6,8 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.example.starwars.R
-import com.example.starwars.data.TypeItem
+import com.example.starwars.data.model.TypeItem
 import com.example.starwars.databinding.FragmentListSelectorBinding
 
 class ListSelectorFragment : Fragment() {
