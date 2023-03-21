@@ -12,20 +12,20 @@
         android:label="fragment_list_selector"
         tools:layout="@layout/fragment_list_selector">
         <action
+            android:id="@+id/action_listSelectorFragment_to_listMovieFragment"
+            app:destination="@id/listMovieFragment" />
+        <action
             android:id="@+id/action_listSelectorFragment_to_listFragment"
             app:destination="@id/listFragment" />
     </fragment>
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.example.starwars.presentation.ListFragment"
+        android:name="com.example.starwars.presentation.list.ListFragment"
         android:label="fragment_list"
         tools:layout="@layout/fragment_list">
         <argument
             android:name="typeItem"
             app:argType="com.example.starwars.data.model.TypeItem" />
-        <action
-            android:id="@+id/action_listFragment_to_detailsMovieFragment"
-            app:destination="@id/detailsMovieFragment" />
         <action
             android:id="@+id/action_listFragment_to_detailsPeopleFragment"
             app:destination="@id/detailsPeopleFragment" />
@@ -46,5 +46,14 @@
         <argument
             android:name="movie"
             app:argType="com.example.starwars.presentation.model.Movie"/>
+    </fragment>
+    <fragment
+        android:id="@+id/listMovieFragment"
+        android:name="com.example.starwars.presentation.ListMovieFragment"
+        android:label="fragment_list_movie"
+        tools:layout="@layout/fragment_list_movie" >
+        <action
+            android:id="@+id/action_listMovieFragment_to_detailsMovieFragment"
+            app:destination="@id/detailsMovieFragment" />
     </fragment>
 </navigation>

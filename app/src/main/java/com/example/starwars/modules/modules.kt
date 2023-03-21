@@ -10,18 +10,24 @@ import com.example.starwars.data.repository.MoviesRepository
 import com.example.starwars.data.repository.MoviesRepositoryImpl
 import com.example.starwars.data.repository.PeoplesRepository
 import com.example.starwars.data.repository.PeoplesRepositoryImpl
+import com.example.starwars.presentation.list.Adapter
+import com.example.starwars.presentation.list.ListViewModel
 import com.example.starwars.retrofit.FlowCallAdapterFactory
+import com.google.gson.GsonBuilder
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-val modules = module {
+val retrofit = module {
+
+    single { GsonBuilder().create() }
+
     single {
-        val converter = get<GsonConverterFactory>()
 
         Retrofit.Builder()
-            .addConverterFactory(converter)
-            .baseUrl(URL_API)
+            .addConverterFactory(         GsonConverterFactory.create(get()))
+            .baseUrl("https://swapi.dev/api/")
             .addCallAdapterFactory(FlowCallAdapterFactory.create())
             .build()
             .create(ApiRequest::class.java)
@@ -39,5 +45,8 @@ val routes = module {
         PeoplesDatasourceImpl(get())
     }
     single<PeoplesRepository> { PeoplesRepositoryImpl(get()) }
-
+}
+val listFeature = module {
+    viewModel { ListViewModel(get()) }
+    single { Adapter()  }
 }

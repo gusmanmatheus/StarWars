@@ -5,5 +5,5 @@ import com.example.starwars.retrofit.ApiResult
 import kotlinx.coroutines.flow.Flow
 
 interface MoviesDatasource {
-    fun getMovies(): Flow<ApiResult<MoviesPage>>
+    fun getMovies(page:String): Flow<ApiResult<MoviesPage>>
 }

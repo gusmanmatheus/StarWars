@@ -1,6 +1,7 @@
 package com.example.starwars.presentation.model
 
 import com.example.starwars.data.model.PeopleRemote
+import com.example.starwars.presentation.ext.prepareUrl
 import java.io.Serializable
 
 data class People(
@@ -8,11 +9,20 @@ data class People(
     val name: String,
     val height: String,
     val mass: String
-): Serializable
+) : Serializable, Item(name)
 
-fun PeopleRemote.toPeople() = People(
-    image = image,
-    name = name,
-    height = height+"Kg",
-    mass = "${mass.toDouble()/100} Metros",
-)
+fun List<PeopleRemote>.toListPeople(): List<People> {
+    val peopleList = mutableListOf<People>()
+    this.forEach {
+        peopleList.add(
+            People(
+                image = it.image.prepareUrl("characters"),
+                name = it.name,
+                height = it.height + "cm",
+                mass = "${it.mass} Kg",
+            )
+        )
+    }
+    return peopleList
+}
+
