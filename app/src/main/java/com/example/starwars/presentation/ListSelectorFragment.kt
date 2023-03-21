@@ -6,9 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.example.starwars.data.model.TypeItem
 import com.example.starwars.databinding.FragmentListSelectorBinding
-import com.example.starwars.presentation.ext.picassoLoading
 import com.squareup.picasso.Picasso
 
 class ListSelectorFragment : Fragment() {
@@ -30,10 +28,10 @@ class ListSelectorFragment : Fragment() {
 
     private fun setupClicks() {
         binding.moviesImage.setOnClickListener {
-            goToListFragment(TypeItem.MOVIES)
+            goToListMovieFragment()
         }
         binding.peopleImage.setOnClickListener {
-            goToListFragment(TypeItem.PEOPLE)
+            goToListPeopleFragment()
         }
     }
 
@@ -46,9 +44,13 @@ class ListSelectorFragment : Fragment() {
             .into(binding.peopleImage)
     }
 
-    private fun goToListFragment(item: TypeItem) {
+    private fun goToListPeopleFragment() {
         findNavController().safeNavigate(
-            ListSelectorFragmentDirections.actionListSelectorFragmentToListFragment(item)
+            ListSelectorFragmentDirections.actionListSelectorFragmentToListPeopleFragment()
         )
+    }
+
+    private fun goToListMovieFragment(){
+        findNavController().safeNavigate(ListSelectorFragmentDirections.actionListSelectorFragmentToListMovieFragment())
     }
 }

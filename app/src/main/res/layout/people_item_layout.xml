@@ -8,6 +8,7 @@
         android:id="@+id/ilImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:src="@drawable/ic_launcher_background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,8 +45,8 @@
         android:layout_height="wrap_content"
         tools:text = "172cm"
         android:layout_margin="16dp"
-        app:layout_constraintStart_toEndOf="@id/ilFirstKey"
-        app:layout_constraintTop_toBottomOf="@id/ilFirstKey"/>
+        app:layout_constraintStart_toEndOf="@id/ilSecondKey"
+        app:layout_constraintTop_toBottomOf="@id/ilFirst"/>
 
     <TextView
         android:id="@+id/ilThirdKey"

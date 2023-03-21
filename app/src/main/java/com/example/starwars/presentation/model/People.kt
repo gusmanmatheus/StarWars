@@ -8,7 +8,9 @@ data class People(
     val image: String,
     val name: String,
     val height: String,
-    val mass: String
+    val mass: String,
+    val eyesColor: String,
+    val birthYear: String
 ) : Serializable, Item(name)
 
 fun List<PeopleRemote>.toListPeople(): List<People> {
@@ -20,6 +22,8 @@ fun List<PeopleRemote>.toListPeople(): List<People> {
                 name = it.name,
                 height = it.height + "cm",
                 mass = "${it.mass} Kg",
+                eyesColor = it.eyeColor,
+                birthYear = it.birthYear
             )
         )
     }

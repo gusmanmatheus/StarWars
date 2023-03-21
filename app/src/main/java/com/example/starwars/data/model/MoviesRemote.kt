@@ -10,5 +10,9 @@ data class MoviesRemote(
     @SerializedName("release_date")
     val launchDate:String,
     @SerializedName("director")
-    val director:String
+    val director:String,
+    @SerializedName("producer")
+    val producer:String,
+    @SerializedName("opening_crawl")
+    val opening: String
 )

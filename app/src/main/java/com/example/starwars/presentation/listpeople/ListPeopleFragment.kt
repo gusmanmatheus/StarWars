@@ -1,4 +1,4 @@
-package com.example.starwars.presentation.list
+package com.example.starwars.presentation.listpeople
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,20 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.starwars.data.model.TypeItem
-import com.example.starwars.databinding.FragmentListBinding
+import com.example.starwars.databinding.FragmentListPeopleBinding
+import com.example.starwars.presentation.Adapter
 import com.example.starwars.presentation.model.Item
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ListFragment : Fragment() {
+class ListPeopleFragment : Fragment() {
     private val adapter: Adapter by inject()
     private val viewModel:ListViewModel by viewModel()
-    private val navArgs :ListFragmentArgs by navArgs()
 
-    private lateinit var binding: FragmentListBinding
+    private lateinit var binding: FragmentListPeopleBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -28,7 +26,7 @@ class ListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentListBinding.inflate(inflater)
+        binding = FragmentListPeopleBinding.inflate(inflater)
         setupList()
         clickAdapter()
         pageModify()

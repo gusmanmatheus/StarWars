@@ -9,7 +9,7 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiRequest {
-    @GET("/films/")
+    @GET("films")
     fun getMovies(@Query("page") page: String): Flow<ApiResult<MoviesPage>>
 
     @GET("people")
