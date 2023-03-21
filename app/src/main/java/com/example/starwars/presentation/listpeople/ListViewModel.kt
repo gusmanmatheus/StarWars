@@ -1,4 +1,4 @@
-package com.example.starwars.presentation.list
+package com.example.starwars.presentation.listpeople
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -14,12 +14,11 @@ import kotlinx.coroutines.launch
 
 class ListViewModel(
     private val peoplesRepository: PeoplesRepository,
-    private val moviesRepository: MoviesRepository
 ) : ViewModel() {
     private val _nextPageLiveData = MutableLiveData("1")
-    val nextPageLiveData :LiveData<String> = _nextPageLiveData
+    val nextPageLiveData: LiveData<String> = _nextPageLiveData
     private val _previousPageLiveData = MutableLiveData("1")
-    val previousPageLiveData :LiveData<String> = _previousPageLiveData
+    val previousPageLiveData: LiveData<String> = _previousPageLiveData
 
     private val _actualPeopleListLiveData = MutableLiveData<List<People>>()
     val actualPeopleListLiveData: LiveData<List<People>> = _actualPeopleListLiveData
@@ -29,7 +28,7 @@ class ListViewModel(
             peoplesRepository.getPeoples(page).apiCollect(
                 onLoading = {},
                 onError = {
-                          Log.i("errorr",it.message.toString())
+                    Log.i("errorr", it.message.toString())
                 },
                 onSuccessful = { peoplePage ->
                     _nextPageLiveData.value = peoplePage?.nextPage ?: "0"
@@ -39,6 +38,4 @@ class ListViewModel(
             )
         }
     }
-
-
 }

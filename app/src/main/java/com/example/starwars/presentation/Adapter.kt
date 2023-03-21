@@ -1,4 +1,4 @@
-package com.example.starwars.presentation.list
+package com.example.starwars.presentation
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -11,6 +11,7 @@ import com.example.starwars.presentation.model.Item
 import com.example.starwars.presentation.model.Movie
 import com.example.starwars.presentation.model.People
 import com.squareup.picasso.Picasso
+import java.util.*
 
 class Adapter : RecyclerView.Adapter<Adapter.Holder>(),Filterable {
 
@@ -31,8 +32,8 @@ class Adapter : RecyclerView.Adapter<Adapter.Holder>(),Filterable {
                 } else {
                     val listFilter = mutableListOf<Item>()
                     data.forEach {
-                        if (it.key.toLowerCase().contains(charString.toLowerCase()) ||
-                            it.key.toLowerCase().contains(charString.toLowerCase())
+                        if (it.key.lowercase(Locale.getDefault()).contains(charString.lowercase()) ||
+                            it.key.lowercase().contains(charString.lowercase())
                         ) {
                             listFilter.add(it)
                         }

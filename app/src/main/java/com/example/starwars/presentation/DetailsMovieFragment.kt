@@ -11,10 +11,6 @@ import com.example.starwars.databinding.FragmentDetailsMovieBinding
 
 class DetailsMovieFragment : Fragment() {
     lateinit var binding: FragmentDetailsMovieBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
