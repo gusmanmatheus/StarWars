@@ -5,5 +5,5 @@ import com.example.starwars.retrofit.ApiResult
 import kotlinx.coroutines.flow.Flow
 
 interface MoviesRepository {
-    suspend fun getMovies(): Flow<ApiResult<MoviesPage>>
+    suspend fun getMovies(page:String): Flow<ApiResult<MoviesPage>>
 }

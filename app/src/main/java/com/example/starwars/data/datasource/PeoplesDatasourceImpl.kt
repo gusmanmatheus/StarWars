@@ -8,11 +8,15 @@ import com.example.starwars.retrofit.apiResultTransform
 import kotlinx.coroutines.flow.Flow
 
 class PeoplesDatasourceImpl(private val apiRequest: ApiRequest) : PeoplesDatasource {
-    override fun getPeoples(page:String): Flow<ApiResult<PeoplePage>> {
+    override fun getPeoples(page: String): Flow<ApiResult<PeoplePage>> {
         return apiRequest.getPeoples(page).apiResultTransform {
             it.apply {
-                this?.nextPage = Uri.parse(this?.nextPage).getQueryParameter("page") ?: ""
-                this?.previousPage = Uri.parse(this?.previousPage).getQueryParameter("page") ?: ""
+                this?.nextPage = this?.nextPage?.let {
+                    Uri.parse(this.nextPage).getQueryParameter("page") ?: "0"
+                } ?: run { "0" }
+                this?.previousPage = this?.previousPage?.let {
+                    Uri.parse(this.previousPage).getQueryParameter("page") ?: "0"
+                } ?: run { "0" }
             }
         }
     }

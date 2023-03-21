@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.starwars.data.model.TypeItem
 import com.example.starwars.databinding.FragmentListSelectorBinding
+import com.example.starwars.presentation.ext.picassoLoading
+import com.squareup.picasso.Picasso
 
 class ListSelectorFragment : Fragment() {
     private lateinit var binding: FragmentListSelectorBinding
@@ -22,6 +24,7 @@ class ListSelectorFragment : Fragment() {
     ): View {
         binding = FragmentListSelectorBinding.inflate(inflater)
         setupClicks()
+        setImage()
         return binding.root
     }
 
@@ -32,6 +35,15 @@ class ListSelectorFragment : Fragment() {
         binding.peopleImage.setOnClickListener {
             goToListFragment(TypeItem.PEOPLE)
         }
+    }
+
+    private fun setImage() {
+        Picasso.get()
+            .load("https://starwars-visualguide.com/assets/img/categories/films.jpg")
+            .into(binding.moviesImage)
+        Picasso.get()
+            .load("https://starwars-visualguide.com/assets/img/categories/character.jpg")
+            .into(binding.peopleImage)
     }
 
     private fun goToListFragment(item: TypeItem) {
