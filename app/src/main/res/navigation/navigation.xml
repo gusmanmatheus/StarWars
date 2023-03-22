@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/listSelectorFragment"
-        android:name="com.example.starwars.presentation.ListSelectorFragment"
+        android:name="com.example.starwars.presentation.feature.ListSelectorFragment"
         android:label="fragment_list_selector"
         tools:layout="@layout/fragment_list_selector">
 
@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/listMovieFragment"
-        android:name="com.example.starwars.presentation.listmovie.ListMovieFragment"
+        android:name="com.example.starwars.presentation.feature.listmovie.ListMovieFragment"
         android:label="fragment_list_movie"
         tools:layout="@layout/fragment_list_movie" >
         <action
@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/listPeopleFragment"
-        android:name="com.example.starwars.presentation.listpeople.ListPeopleFragment"
+        android:name="com.example.starwars.presentation.feature.listpeople.ListPeopleFragment"
         android:label="fragment_list_people"
         tools:layout="@layout/fragment_list_people" >
         <action
@@ -39,7 +39,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailsMovieFragment"
-        android:name="com.example.starwars.presentation.DetailsMovieFragment"
+        android:name="com.example.starwars.presentation.feature.DetailsMovieFragment"
         android:label="fragment_details_movie"
         tools:layout="@layout/fragment_details_movie" >
         <argument
@@ -48,7 +48,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailsPeopleFragment"
-        android:name="com.example.starwars.presentation.DetailsPeopleFragment"
+        android:name="com.example.starwars.presentation.feature.DetailsPeopleFragment"
         android:label="DetailsPeopleFragment" >
         <argument
             android:name="people"

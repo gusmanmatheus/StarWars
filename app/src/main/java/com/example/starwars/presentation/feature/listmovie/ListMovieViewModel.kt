@@ -1,4 +1,4 @@
-package com.example.starwars.presentation.listmovie
+package com.example.starwars.presentation.feature.listmovie
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -22,14 +22,24 @@ class ListMovieViewModel(
     private val _actualMovieListLiveData = MutableLiveData<List<Movie>>()
     val actualMovieListLiveData: LiveData<List<Movie>> = _actualMovieListLiveData
 
+    private val _loadingLiveData = MutableLiveData<Boolean>()
+    val loadingLiveData: LiveData<Boolean> = _loadingLiveData
+
+    private val _requestError = MutableLiveData<String>()
+    val requestError: LiveData<String> = _requestError
+
     fun getMovies(page: String) {
         viewModelScope.launch {
             moviesRepository.getMovies(page).apiCollect(
-                onLoading = {},
+                onLoading = {
+                    _loadingLiveData.value = true
+                },
                 onError = {
-                    Log.i("errorr", it.message.toString())
+                    _loadingLiveData.value = false
+                    _requestError.value = it.message.toString()
                 },
                 onSuccessful = { moviePage ->
+                    _loadingLiveData.value = false
                     _nextPageLiveData.value = moviePage?.nextPage ?: "0"
                     _previousPageLiveData.value = moviePage?.previousPage ?: "0"
                     _actualMovieListLiveData.value = moviePage?.movieList?.toMovieList()

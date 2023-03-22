@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.ListSelectorFragment">
+    tools:context=".presentation.feature.ListSelectorFragment">
 
     <ImageView
         android:id="@+id/peopleImage"
@@ -19,7 +19,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Personagens"
+        android:text="@string/character_key"
         app:layout_constraintTop_toBottomOf="@id/peopleImage"
         app:layout_constraintStart_toStartOf="@id/peopleImage"
         app:layout_constraintEnd_toEndOf="@id/peopleImage"/>
@@ -38,7 +38,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Filmes"
+            android:text="@string/films_key"
             app:layout_constraintStart_toStartOf="@id/moviesImage"
             app:layout_constraintEnd_toEndOf="@id/moviesImage"
             app:layout_constraintTop_toBottomOf="@id/moviesImage"/>

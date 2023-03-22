@@ -1,4 +1,4 @@
-package com.example.starwars.presentation
+package com.example.starwars.presentation.feature
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.starwars.databinding.FragmentListSelectorBinding
+import com.example.starwars.presentation.safeNavigate
 import com.squareup.picasso.Picasso
 
 class ListSelectorFragment : Fragment() {
