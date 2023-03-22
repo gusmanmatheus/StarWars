@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
     <androidx.constraintlayout.widget.ConstraintLayout
-         android:layout_width="match_parent"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        tools:context=".presentation.DetailsMovieFragment">
+        tools:context=".presentation.feature.DetailsMovieFragment">
 
         <ImageView
             android:id="@+id/fdMovieImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/normal_margin"
             android:src="@drawable/ic_launcher_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -35,8 +35,8 @@
             android:id="@+id/fdTitleKey"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:text="nome"
+            android:layout_margin="@dimen/normal_margin"
+            android:text="@string/title_movie_key"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fdMovieImage" />
 
@@ -44,7 +44,7 @@
             android:id="@+id/fdTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/normal_margin"
             app:layout_constraintStart_toEndOf="@id/fdTitleKey"
             app:layout_constraintTop_toBottomOf="@id/fdMovieImage"
             tools:text="A New Hope" />
@@ -53,8 +53,8 @@
             android:id="@+id/fdLaunchKey"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:text="lançamento"
+            android:layout_margin="@dimen/normal_margin"
+            android:text="@string/launch_movie_key"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fdTitleKey" />
 
@@ -62,7 +62,7 @@
             android:id="@+id/fdLaunch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/normal_margin"
             app:layout_constraintStart_toEndOf="@id/fdLaunchKey"
             app:layout_constraintTop_toBottomOf="@id/fdTitle"
             tools:text="25/05/1997" />
@@ -71,8 +71,8 @@
             android:id="@+id/fdDirectorKey"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:text="Diretor"
+            android:layout_margin="@dimen/normal_margin"
+            android:text="@string/director_movie_key"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fdLaunchKey" />
 
@@ -80,7 +80,7 @@
             android:id="@+id/fdDirector"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/normal_margin"
             app:layout_constraintStart_toEndOf="@id/fdDirectorKey"
             app:layout_constraintTop_toBottomOf="@id/fdLaunch"
             tools:text="George Lucas" />
@@ -89,16 +89,18 @@
             android:id="@+id/fdProduceKey"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:text="Produtor"
+            android:layout_margin="@dimen/normal_margin"
+            android:text="@string/productor_movie_key"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fdDirectorKey" />
 
         <TextView
             android:id="@+id/fdProduce"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/normal_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
             app:layout_constraintStart_toEndOf="@id/fdProduceKey"
             app:layout_constraintTop_toBottomOf="@id/fdDirector"
             tools:text="Gary Kurtz, Rick McCallum" />
@@ -107,16 +109,16 @@
             android:id="@+id/fdOpeningKey"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:text="Abertura:"
+            android:layout_margin="@dimen/normal_margin"
+            android:text="@string/opening_movie_key"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fdProduceKey" />
+            app:layout_constraintTop_toBottomOf="@id/fdProduce" />
 
         <TextView
             android:id="@+id/fdOpening"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/normal_margin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fdOpeningKey"

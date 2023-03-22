@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_launcher_background"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/normal_margin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <ProgressBar
@@ -29,8 +29,8 @@
         android:id="@+id/fdNameKey"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="name: "
+        android:layout_margin="@dimen/normal_margin"
+        android:text="@string/name_people_key"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fdPeopleImage" />
 
@@ -38,7 +38,7 @@
         android:id="@+id/fdName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/normal_margin"
         app:layout_constraintStart_toEndOf="@id/fdNameKey"
         app:layout_constraintTop_toBottomOf="@id/fdPeopleImage"
         tools:text="Luke Skywalker" />
@@ -47,8 +47,8 @@
         android:id="@+id/fdHeightKey"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="altura: "
+        android:layout_margin="@dimen/normal_margin"
+        android:text="@string/height_people_key"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fdNameKey" />
 
@@ -56,7 +56,7 @@
         android:id="@+id/fdHeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/normal_margin"
         app:layout_constraintStart_toEndOf="@id/fdNameKey"
         app:layout_constraintTop_toBottomOf="@id/fdNameKey"
         tools:text="172cm" />
@@ -65,8 +65,8 @@
         android:id="@+id/fdMassKey"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="peso: "
+        android:layout_margin="@dimen/normal_margin"
+        android:text="@string/mass_people_key"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fdHeightKey" />
 
@@ -74,7 +74,7 @@
         android:id="@+id/fdMass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/normal_margin"
         app:layout_constraintStart_toEndOf="@id/fdNameKey"
         app:layout_constraintTop_toBottomOf="@id/fdHeightKey"
         tools:text="77kg" />
@@ -83,8 +83,8 @@
         android:id="@+id/fdEyesColorKey"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="cor dos olhos"
+        android:layout_margin="@dimen/normal_margin"
+        android:text="@string/eyes_people_key"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fdMassKey" />
 
@@ -92,7 +92,7 @@
         android:id="@+id/fdEyesColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/normal_margin"
         app:layout_constraintStart_toEndOf="@id/fdEyesColorKey"
         app:layout_constraintTop_toBottomOf="@id/fdMass"
         tools:text="Castanhos" />
@@ -101,8 +101,8 @@
         android:id="@+id/fdBirthYearKey"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="ano de nascimento"
+        android:layout_margin="@dimen/normal_margin"
+        android:text="@string/birth_year_people_key"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fdEyesColorKey" />
 
@@ -110,7 +110,7 @@
         android:id="@+id/fdBirthYear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/normal_margin"
         app:layout_constraintStart_toEndOf="@id/fdBirthYearKey"
         app:layout_constraintTop_toBottomOf="@id/fdEyesColor"
         tools:text="18BB2" />

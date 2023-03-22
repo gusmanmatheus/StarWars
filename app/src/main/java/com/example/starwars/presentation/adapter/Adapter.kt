@@ -1,10 +1,11 @@
-package com.example.starwars.presentation
+package com.example.starwars.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
+import com.example.starwars.R
 import com.example.starwars.databinding.PeopleItemLayoutBinding
 import com.example.starwars.presentation.ext.picassoLoading
 import com.example.starwars.presentation.model.Item
@@ -13,7 +14,7 @@ import com.example.starwars.presentation.model.People
 import com.squareup.picasso.Picasso
 import java.util.*
 
-class Adapter : RecyclerView.Adapter<Adapter.Holder>(),Filterable {
+class Adapter : RecyclerView.Adapter<Adapter.Holder>(), Filterable {
 
     var onItemClick: ((Item) -> Unit) = {}
 
@@ -25,6 +26,7 @@ class Adapter : RecyclerView.Adapter<Adapter.Holder>(),Filterable {
                 filterResult.values = filterItem(charString)
                 return filterResult
             }
+
             fun filterItem(constraint: CharSequence?): MutableList<Item> {
                 val charString = constraint.toString()
                 listFiltered = if (charString.isEmpty()) {
@@ -32,7 +34,8 @@ class Adapter : RecyclerView.Adapter<Adapter.Holder>(),Filterable {
                 } else {
                     val listFilter = mutableListOf<Item>()
                     data.forEach {
-                        if (it.key.lowercase(Locale.getDefault()).contains(charString.lowercase()) ||
+                        if (it.key.lowercase(Locale.getDefault())
+                                .contains(charString.lowercase()) ||
                             it.key.lowercase().contains(charString.lowercase())
                         ) {
                             listFilter.add(it)
@@ -54,6 +57,7 @@ class Adapter : RecyclerView.Adapter<Adapter.Holder>(),Filterable {
         this.data = data
         listFiltered = data
     }
+
     var listFiltered = mutableListOf<Item>()
 
     var data: MutableList<Item> = mutableListOf()
@@ -77,21 +81,23 @@ class Adapter : RecyclerView.Adapter<Adapter.Holder>(),Filterable {
             if (item is People) {
                 Picasso.get()
                     .picassoLoading(item.image, binding.ilImage, binding.progressBar)
-                binding.ilFirstKey.text = "Nome"
+                binding.ilFirstKey.text = binding.root.context.getString(R.string.name_people_key)
                 binding.ilFirst.text = item.name
-                binding.ilSecondKey.text = "Altura"
+                binding.ilSecondKey.text =
+                    binding.root.context.getString(R.string.height_people_key)
                 binding.ilSecond.text = item.height
-                binding.ilThirdKey.text = "Peso"
+                binding.ilThirdKey.text = binding.root.context.getString(R.string.mass_people_key)
                 binding.ilThird.text = item.mass
             }
-            if (item is Movie){
+            if (item is Movie) {
                 Picasso.get()
                     .picassoLoading(item.image, binding.ilImage, binding.progressBar)
-                binding.ilFirstKey.text = "Nome"
+                binding.ilFirstKey.text = binding.root.context.getString(R.string.title_movie_key)
                 binding.ilFirst.text = item.title
-                binding.ilSecondKey.text = "Data de lançamento"
+                binding.ilSecondKey.text = binding.root.context.getString(R.string.launch_movie_key)
                 binding.ilSecond.text = item.launchDate
-                binding.ilThirdKey.text = "Diretor"
+                binding.ilThirdKey.text =
+                    binding.root.context.getString(R.string.director_movie_key)
                 binding.ilThird.text = item.director
             }
         }

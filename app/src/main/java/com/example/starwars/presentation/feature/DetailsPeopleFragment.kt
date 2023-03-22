@@ -1,4 +1,4 @@
-package com.example.starwars.presentation
+package com.example.starwars.presentation.feature
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,8 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
-import com.example.starwars.R
-import com.example.starwars.databinding.FragmentDetailsMovieBinding
 import com.example.starwars.databinding.FragmentDetailsPeopleBinding
 import com.example.starwars.presentation.ext.picassoLoading
 import com.example.starwars.presentation.model.People

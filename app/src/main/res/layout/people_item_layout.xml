@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,7 +9,7 @@
         android:id="@+id/ilImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/normal_margin"
         android:src="@drawable/ic_launcher_background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,8 +19,8 @@
             android:id="@+id/ilFirstKey"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="name: "
-            android:layout_margin="16dp"
+            android:text="@string/name_people_key"
+            android:layout_margin="@dimen/normal_margin"
             app:layout_constraintTop_toBottomOf="@id/ilImage"
             app:layout_constraintStart_toStartOf="parent"/>
         <TextView
@@ -27,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text = "Luke Skywalker"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/normal_margin"
             app:layout_constraintStart_toEndOf="@id/ilFirstKey"
             app:layout_constraintTop_toBottomOf="@id/ilImage"/>
 
@@ -35,8 +36,8 @@
         android:id="@+id/ilSecondKey"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="altura: "
-        android:layout_margin="16dp"
+        android:text="@string/height_people_key"
+        android:layout_margin="@dimen/normal_margin"
         app:layout_constraintTop_toBottomOf="@id/ilFirstKey"
         app:layout_constraintStart_toStartOf="parent"/>
     <TextView
@@ -44,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text = "172cm"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/normal_margin"
         app:layout_constraintStart_toEndOf="@id/ilSecondKey"
         app:layout_constraintTop_toBottomOf="@id/ilFirst"/>
 
@@ -52,8 +53,8 @@
         android:id="@+id/ilThirdKey"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="peso: "
-        android:layout_margin="16dp"
+        android:text="@string/mass_people_key"
+        android:layout_margin="@dimen/normal_margin"
         app:layout_constraintTop_toBottomOf="@id/ilSecondKey"
         app:layout_constraintStart_toStartOf="parent"/>
     <TextView
@@ -61,7 +62,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text = "77kg"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/normal_margin"
         app:layout_constraintStart_toEndOf="@id/ilFirstKey"
         app:layout_constraintTop_toBottomOf="@id/ilSecondKey"/>
 

@@ -1,4 +1,4 @@
-package com.example.starwars.presentation.listmovie
+package com.example.starwars.presentation.feature.listmovie
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,10 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.starwars.databinding.FragmentListMovieBinding
-import com.example.starwars.presentation.Adapter
+import com.example.starwars.presentation.adapter.Adapter
 import com.example.starwars.presentation.model.Item
+import com.example.starwars.presentation.model.Movie
+import com.example.starwars.presentation.safeNavigate
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -18,7 +21,7 @@ class ListMovieFragment : Fragment() {
     private val viewModel: ListMovieViewModel by viewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        viewModel.getMovies("1")
     }
 
     private lateinit var binding: FragmentListMovieBinding
@@ -31,12 +34,13 @@ class ListMovieFragment : Fragment() {
         setupList()
         clickAdapter()
         pageModify()
-        disablePageModifyObserver()
-        getMovieObserver()
+        disableAndEnablePageModifyObserver()
+        disablePageModify()
+        setupObservers()
         filterSearchView()
-        viewModel.getMovies("1")
         return binding.root
     }
+
 
     private fun setupList() {
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -50,12 +54,28 @@ class ListMovieFragment : Fragment() {
     }
 
     private fun nextActivity(item: Item) {
-
+        if (item is Movie) {
+            findNavController().safeNavigate(
+                ListMovieFragmentDirections.actionListMovieFragmentToDetailsMovieFragment(item)
+            )
+        }
     }
 
-    private fun getMovieObserver() {
+    private fun setupObservers() {
         viewModel.actualMovieListLiveData.observe(viewLifecycleOwner) {
+            binding.requestError.visibility = View.INVISIBLE
             adapter.setValues(it.toMutableList())
+        }
+        viewModel.loadingLiveData.observe(viewLifecycleOwner) {
+            if (it) {
+                disablePageModify()
+            }
+            binding.progressBar.visibility = if (it) View.VISIBLE else View.GONE
+        }
+        viewModel.requestError.observe(viewLifecycleOwner) {
+            disablePageModify()
+            binding.requestError.visibility = View.VISIBLE
+            binding.requestError.text = it
         }
     }
 
@@ -68,14 +88,26 @@ class ListMovieFragment : Fragment() {
         }
     }
 
-    private fun disablePageModifyObserver(){
+    private fun disablePageModify() {
+        binding.nextPage.visibility = View.INVISIBLE
+        binding.previousPage.visibility = View.INVISIBLE
+    }
+
+    private fun disableAndEnablePageModifyObserver() {
         viewModel.nextPageLiveData.observe(viewLifecycleOwner) {
-            if( it == "0") binding.nextPage.visibility = View.INVISIBLE
+            if (it == "0") {
+                binding.nextPage.visibility = View.INVISIBLE
+            } else
+                binding.nextPage.visibility = View.VISIBLE
         }
         viewModel.previousPageLiveData.observe(viewLifecycleOwner) {
-            if( it == "0") binding.previousPage.visibility = View.INVISIBLE
+            if (it == "0") {
+                binding.previousPage.visibility = View.INVISIBLE
+            } else
+                binding.previousPage.visibility = View.VISIBLE
         }
     }
+
 
     private fun filterSearchView() {
         binding.searchView.setOnQueryTextListener(
