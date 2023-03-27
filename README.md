@@ -32,7 +32,7 @@ Arquitetura MVVM
 * [Junit][page-junit]
 * [Navigation] [page-navigation]
 * [Picasso] [page-picasso]
-
+* [Mockk] [page-mockk]
 
 [page-coroutine]: https://github.com/Kotlin/kotlinx.coroutines
 [page-koin]: https://insert-koin.io/
@@ -41,3 +41,4 @@ Arquitetura MVVM
 [page-junit]: https://developer.android.com/training/testing/junit-rules
 [page-navigation]: https://developer.android.com/guide/navigation?gclid=CjwKCAjw_YShBhAiEiwAMomsEDGJwN7DBDxOQWdwsTz7FKjoOfomM8bbizEBuaMn9rzKRj_2zNILPRoC5QgQAvD_BwE&gclsrc=aw.ds&hl=pt-br
 [page-picasso]: https://square.github.io/picasso/
+[page-mockk]: https://mockk.io/
