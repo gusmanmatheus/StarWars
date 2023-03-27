@@ -3,10 +3,12 @@ Este é um aplicativo que lista 2 categorias(`People` e `films`) da api https://
 
 ## Como usar
 primeiro você escolhe a categoria desejada,
-![img.png](img.png)
+
+![img_8.png](img_8.png)
 
 depois voce escolhe qual item deseja saber mais detalhes,
-![img_2.png](img_2.png)
+
+![img_7.png](img_7.png)
 
 depois se tem detalhe completo do item selecionado
 
@@ -28,7 +30,6 @@ Arquitetura MVVM
 * [Retrofit][page-retrofit]
 * [Gson][page-gson]
 * [Junit][page-junit]
-* [Mockito][page-mockito]
 * [Navigation] [page-navigation]
 * [Picasso] [page-picasso]
 
