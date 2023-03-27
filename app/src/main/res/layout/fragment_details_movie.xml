@@ -37,6 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/normal_margin"
             android:text="@string/title_movie_key"
+            android:textColor="@color/yellow"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fdMovieImage" />
 
@@ -45,6 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/normal_margin"
+            android:textColor="@color/yellow"
             app:layout_constraintStart_toEndOf="@id/fdTitleKey"
             app:layout_constraintTop_toBottomOf="@id/fdMovieImage"
             tools:text="A New Hope" />
@@ -55,6 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/normal_margin"
             android:text="@string/launch_movie_key"
+            android:textColor="@color/yellow"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fdTitleKey" />
 
@@ -63,6 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/normal_margin"
+            android:textColor="@color/yellow"
             app:layout_constraintStart_toEndOf="@id/fdLaunchKey"
             app:layout_constraintTop_toBottomOf="@id/fdTitle"
             tools:text="25/05/1997" />
@@ -73,6 +77,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/normal_margin"
             android:text="@string/director_movie_key"
+            android:textColor="@color/yellow"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fdLaunchKey" />
 
@@ -81,6 +86,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/normal_margin"
+            android:textColor="@color/yellow"
             app:layout_constraintStart_toEndOf="@id/fdDirectorKey"
             app:layout_constraintTop_toBottomOf="@id/fdLaunch"
             tools:text="George Lucas" />
@@ -91,6 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/normal_margin"
             android:text="@string/productor_movie_key"
+            android:textColor="@color/yellow"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fdDirectorKey" />
 
@@ -99,6 +106,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/normal_margin"
+            android:textColor="@color/yellow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.1"
             app:layout_constraintStart_toEndOf="@id/fdProduceKey"
@@ -111,6 +119,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/normal_margin"
             android:text="@string/opening_movie_key"
+            android:textColor="@color/yellow"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fdProduce" />
 
@@ -119,6 +128,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/normal_margin"
+            android:textColor="@color/yellow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fdOpeningKey"

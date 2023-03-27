@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setToolbar() {
-        val titleColor = ContextCompat.getColor(baseContext, R.color.white)
+        val titleColor = ContextCompat.getColor(baseContext, R.color.yellow)
         setSupportActionBar(binding.toolbar)
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
