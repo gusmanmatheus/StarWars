@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:background="@color/black">
 
     <ImageView
         android:id="@+id/fdPeopleImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_launcher_background"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="@dimen/normal_margin"
+        android:src="@drawable/ic_launcher_background"
+        android:textColor="@color/yellow"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
@@ -25,12 +27,14 @@
         app:layout_constraintEnd_toEndOf="@+id/fdPeopleImage"
         app:layout_constraintStart_toStartOf="@+id/fdPeopleImage"
         app:layout_constraintTop_toTopOf="@+id/fdPeopleImage" />
+
     <TextView
         android:id="@+id/fdNameKey"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/normal_margin"
         android:text="@string/name_people_key"
+        android:textColor="@color/yellow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fdPeopleImage" />
 
@@ -39,6 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/normal_margin"
+        android:textColor="@color/yellow"
         app:layout_constraintStart_toEndOf="@id/fdNameKey"
         app:layout_constraintTop_toBottomOf="@id/fdPeopleImage"
         tools:text="Luke Skywalker" />
@@ -49,6 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/normal_margin"
         android:text="@string/height_people_key"
+        android:textColor="@color/yellow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fdNameKey" />
 
@@ -57,6 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/normal_margin"
+        android:textColor="@color/yellow"
         app:layout_constraintStart_toEndOf="@id/fdNameKey"
         app:layout_constraintTop_toBottomOf="@id/fdNameKey"
         tools:text="172cm" />
@@ -67,6 +74,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/normal_margin"
         android:text="@string/mass_people_key"
+        android:textColor="@color/yellow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fdHeightKey" />
 
@@ -75,6 +83,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/normal_margin"
+        android:textColor="@color/yellow"
         app:layout_constraintStart_toEndOf="@id/fdNameKey"
         app:layout_constraintTop_toBottomOf="@id/fdHeightKey"
         tools:text="77kg" />
@@ -85,6 +94,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/normal_margin"
         android:text="@string/eyes_people_key"
+        android:textColor="@color/yellow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fdMassKey" />
 
@@ -93,6 +103,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/normal_margin"
+        android:textColor="@color/yellow"
         app:layout_constraintStart_toEndOf="@id/fdEyesColorKey"
         app:layout_constraintTop_toBottomOf="@id/fdMass"
         tools:text="Castanhos" />
@@ -103,6 +114,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/normal_margin"
         android:text="@string/birth_year_people_key"
+        android:textColor="@color/yellow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fdEyesColorKey" />
 
@@ -111,6 +123,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/normal_margin"
+        android:textColor="@color/yellow"
         app:layout_constraintStart_toEndOf="@id/fdBirthYearKey"
         app:layout_constraintTop_toBottomOf="@id/fdEyesColor"
         tools:text="18BB2" />

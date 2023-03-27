@@ -1,12 +1,16 @@
 package com.example.starwars.presentation.feature
 
 import android.content.res.ColorStateList
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.ImageView
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.starwars.R
@@ -38,6 +42,9 @@ abstract class ListItemFragment() : Fragment() {
         setupObservers()
         disablePageModify()
         filterSearchView()
+        focusController()
+        changeFocusSearchView(false)
+        changeColorText()
         return binding.root
     }
 
@@ -115,5 +122,51 @@ abstract class ListItemFragment() : Fragment() {
                 }
             }
         )
+    }
+
+    private fun focusController() {
+        binding.searchView.setOnQueryTextFocusChangeListener { _, select ->
+            if (select) {
+                changeFocusSearchView(true)
+            } else {
+                changeFocusSearchView(false)
+
+            }
+        }
+    }
+
+    private fun changeFocusSearchView(focus: Boolean) {
+        val searchIcon: ImageView =
+            binding.searchView.findViewById((androidx.appcompat.R.id.search_mag_icon))
+        val searchIconX: ImageView =
+            binding.searchView.findViewById((androidx.appcompat.R.id.search_close_btn))
+        if (focus) {
+            binding.searchView.background =
+                ContextCompat.getDrawable(requireContext(), R.drawable.ic_launcher_background)
+
+            searchIcon.setColorFilter(
+                ResourcesCompat.getColor(resources, R.color.white, null),
+                PorterDuff.Mode.SRC_ATOP
+            )
+            searchIconX.setColorFilter(
+                ResourcesCompat.getColor(resources, R.color.white, null),
+                PorterDuff.Mode.SRC_ATOP
+            )
+            binding.searchView.background =
+                ContextCompat.getDrawable(requireContext(), R.drawable.field_focus)
+        } else {
+            searchIconX.clearColorFilter()
+            searchIcon.clearColorFilter()
+            binding.searchView.background =
+                ContextCompat.getDrawable(requireContext(), R.drawable.field_no_focus)
+        }
+    }
+
+    private fun changeColorText() {
+        val color = ContextCompat.getColor(requireContext(), R.color.white)
+        val textColorSearchView: EditText =
+            binding.searchView.findViewById(androidx.constraintlayout.widget.R.id.search_src_text)
+        textColorSearchView.setTextColor(color)
+        textColorSearchView.setHintTextColor(color)
     }
 }
