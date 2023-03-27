@@ -15,4 +15,5 @@
     <string name="character_key">Personagens</string>
     <string name="films_key">Filmes</string>
     <string name="ss">Nome</string>
+    <string name="application_name">StarWars</string>
 </resources>
