@@ -30,9 +30,9 @@ Arquitetura MVVM
 * [Retrofit][page-retrofit]
 * [Gson][page-gson]
 * [Junit][page-junit]
-* [Navigation] [page-navigation]
-* [Picasso] [page-picasso]
-* [Mockk] [page-mockk]
+* [Navigation][page-navigation]
+* [Picasso][page-picasso]
+* [Mockk][page-mockk]
 
 [page-coroutine]: https://github.com/Kotlin/kotlinx.coroutines
 [page-koin]: https://insert-koin.io/
