@@ -101,7 +101,7 @@ class ListPeopleViewModelTest {
     @Test
     fun `every call peopleRepository with actual page 2 should returns success with values previous 1 and next 2`() =
         runTest(UnconfinedTestDispatcher()) {
-             val nextPageLiveDataObserver: Observer<String> = mockk {
+            val nextPageLiveDataObserver: Observer<String> = mockk {
                 every { onChanged("3") } just Runs
             }
             val previousPageLiveDataObserver: Observer<String> = mockk {

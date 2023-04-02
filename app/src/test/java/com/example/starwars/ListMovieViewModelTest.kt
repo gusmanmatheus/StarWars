@@ -3,6 +3,7 @@ package com.example.starwars
 import androidx.lifecycle.Observer
 import com.example.starwars.data.repository.MoviesRepository
 import com.example.starwars.presentation.feature.listmovie.ListMovieViewModel
+import com.example.starwars.presentation.feature.listpeople.ListPeopleViewModel
 import com.example.starwars.presentation.model.Item
 import com.example.starwars.retrofit.ApiResult
 import io.mockk.*
@@ -20,21 +21,21 @@ import org.junit.jupiter.api.extension.ExtendWith
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @ExtendWith(InstantExecutorExtension::class)
 @OptIn(ExperimentalCoroutinesApi::class)
-
 class ListMovieViewModelTest {
     private val dispatcher: TestDispatcher = UnconfinedTestDispatcher()
 
     private lateinit var viewModel: ListMovieViewModel
     private var moviesRepository = mockk<MoviesRepository>()
+    private var actualMovieListLiveDataObserver: Observer<List<Item>> = mockk {
+        every { onChanged(listOf( movie)) } just Runs
+    }
     private var loadingLiveDataObserver: Observer<Boolean> = mockk {
-        every { onChanged(false) } just Runs
+        every { onChanged(false) }just Runs
+        every { onChanged(true) } just Runs
     }
+
+
     private val messageError = "error"
-
-
-    private var actualMoviesListLiveDataObserver: Observer<List<Item>> = mockk {
-        every { onChanged(listOf(movie)) } just Runs
-    }
     private val errorObserver: Observer<String> = mockk {
         every { onChanged(messageError) } just Runs
     }
@@ -83,7 +84,7 @@ class ListMovieViewModelTest {
                     )
 
             viewModel.getItems("1")
-            viewModel.actualItemListLiveData.observeForever(actualMoviesListLiveDataObserver)
+            viewModel.actualItemListLiveData.observeForever(actualMovieListLiveDataObserver)
             viewModel.loadingLiveData.observeForever(loadingLiveDataObserver)
             viewModel.nextPageLiveData.observeForever(nextPageLiveDataObserver)
             viewModel.previousPageLiveData.observeForever(previousPageLiveDataObserver)
@@ -93,7 +94,7 @@ class ListMovieViewModelTest {
             verify { nextPageLiveDataObserver.onChanged("0") }
             verify { previousPageLiveDataObserver.onChanged("0") }
             verify { loadingLiveDataObserver.onChanged(false) }
-            verify { actualMoviesListLiveDataObserver.onChanged(listOf(movie)) }
+            verify { actualMovieListLiveDataObserver.onChanged(listOf( movie)) }
         }
 
     @Test
@@ -111,13 +112,13 @@ class ListMovieViewModelTest {
                     )
 
             viewModel.getItems("2")
-            viewModel.actualItemListLiveData.observeForever(actualMoviesListLiveDataObserver)
+            viewModel.actualItemListLiveData.observeForever(actualMovieListLiveDataObserver)
             viewModel.loadingLiveData.observeForever(loadingLiveDataObserver)
             viewModel.nextPageLiveData.observeForever(nextPageLiveDataObserver)
             viewModel.previousPageLiveData.observeForever(previousPageLiveDataObserver)
 
             verify { loadingLiveDataObserver.onChanged(false) }
-            verify { actualMoviesListLiveDataObserver.onChanged(listOf(movie)) }
+            verify { actualMovieListLiveDataObserver.onChanged(listOf( movie)) }
         }
 
     @Test
