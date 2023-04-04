@@ -32,7 +32,7 @@ class ListMovieViewModel(
         viewModelScope.launch {
             moviesRepository.getMovies(page).apiCollect(
                 onLoading = {
-                    _loadingLiveData.value = true
+                    _loadingLiveData.postValue( true)
                 },
                 onError = {
                     _loadingLiveData.value = false

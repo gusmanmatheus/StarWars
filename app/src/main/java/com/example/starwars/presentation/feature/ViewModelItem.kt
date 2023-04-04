@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.starwars.presentation.model.Item
 
+@Suppress("PropertyName")
 abstract class ViewModelItem:ViewModel() {
    protected open val _nextPageLiveData = MutableLiveData("1")
    open val nextPageLiveData: LiveData<String> = _nextPageLiveData

@@ -8,6 +8,8 @@ import com.example.starwars.presentation.feature.ViewModelItem
 import com.example.starwars.presentation.model.Item
 import com.example.starwars.presentation.model.toListPeople
 import com.example.starwars.retrofit.apiCollect
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class ListPeopleViewModel(
@@ -33,14 +35,14 @@ class ListPeopleViewModel(
         viewModelScope.launch {
             peoplesRepository.getPeoples(page).apiCollect(
                 onLoading = {
-                    _loadingLiveData.value = true
+                    _loadingLiveData.postValue( true)
                 },
                 onError = {
                     _loadingLiveData.value = false
                     _requestError.value = it.message.toString()
                 },
                 onSuccessful = { peoplePage ->
-                    _loadingLiveData.value = false
+                    _loadingLiveData.postValue(false)
                     _nextPageLiveData.value = peoplePage?.nextPage ?: "0"
                     _previousPageLiveData.value = peoplePage?.previousPage ?: "0"
                     _actualItemListLiveData.value = peoplePage?.peopleList?.toListPeople()

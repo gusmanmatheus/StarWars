@@ -4,9 +4,9 @@ import com.google.gson.annotations.SerializedName
 
 data class MoviesPage(
     @SerializedName("next")
-    var nextPage: String,
+    var nextPage: String?,
     @SerializedName("previous")
-    var previousPage: String,
+    var previousPage: String?,
     @SerializedName("results")
     val movieList: List<MoviesRemote>
 )
