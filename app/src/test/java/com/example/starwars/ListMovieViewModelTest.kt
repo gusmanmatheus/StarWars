@@ -60,6 +60,9 @@ class ListMovieViewModelTest {
                     flowOf(
                         ApiResult.Error(Throwable(messageError))
                     )
+            loadingLiveDataObserver = mockk {
+                every { onChanged(false) } just Runs
+            }
             viewModel.getItems("1")
             viewModel.loadingLiveData.observeForever(loadingLiveDataObserver)
 
@@ -82,7 +85,9 @@ class ListMovieViewModelTest {
                     flowOf(
                         ApiResult.Success(moviePage)
                     )
-
+            loadingLiveDataObserver = mockk {
+                every { onChanged(false) } just Runs
+            }
             viewModel.getItems("1")
             viewModel.actualItemListLiveData.observeForever(actualMovieListLiveDataObserver)
             viewModel.loadingLiveData.observeForever(loadingLiveDataObserver)
@@ -112,6 +117,9 @@ class ListMovieViewModelTest {
                     )
 
             viewModel.getItems("2")
+            loadingLiveDataObserver = mockk {
+                every { onChanged(false) } just Runs
+            }
             viewModel.actualItemListLiveData.observeForever(actualMovieListLiveDataObserver)
             viewModel.loadingLiveData.observeForever(loadingLiveDataObserver)
             viewModel.nextPageLiveData.observeForever(nextPageLiveDataObserver)

@@ -61,6 +61,9 @@ class ListPeopleViewModelTest {
                     flowOf(
                         ApiResult.Error(Throwable(messageError))
                     )
+            loadingLiveDataObserver = mockk {
+                every { onChanged(false) } just Runs
+            }
             viewModel.getItems("1")
             viewModel.loadingLiveData.observeForever(loadingLiveDataObserver)
 
@@ -84,12 +87,14 @@ class ListPeopleViewModelTest {
                         ApiResult.Success(pagePeople)
                     )
 
+            loadingLiveDataObserver = mockk {
+                every { onChanged(false) } just Runs
+            }
             viewModel.getItems("1")
             viewModel.actualItemListLiveData.observeForever(actualPeopleListLiveDataObserver)
             viewModel.loadingLiveData.observeForever(loadingLiveDataObserver)
             viewModel.nextPageLiveData.observeForever(nextPageLiveDataObserver)
             viewModel.previousPageLiveData.observeForever(previousPageLiveDataObserver)
-
 
 
             verify { nextPageLiveDataObserver.onChanged("0") }
@@ -111,7 +116,9 @@ class ListPeopleViewModelTest {
                     flowOf(
                         ApiResult.Success(pagePeople.copy(nextPage = "3", previousPage = "1"))
                     )
-
+            loadingLiveDataObserver = mockk {
+                every { onChanged(false) } just Runs
+            }
             viewModel.getItems("2")
             viewModel.actualItemListLiveData.observeForever(actualPeopleListLiveDataObserver)
             viewModel.loadingLiveData.observeForever(loadingLiveDataObserver)
